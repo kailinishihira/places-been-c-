@@ -14,7 +14,13 @@ namespace PlacesBeen.Contollers
       return View();
     }
 
-    [HttpPost("/addplace")]
+    [HttpGet("/places/new")]
+    public ActionResult NewPlaces()
+    {
+      return View();
+    }
+
+    [HttpPost("/places/add")]
     public ActionResult AddPlace()
     {
       string location = Request.Form["location"];
@@ -24,7 +30,15 @@ namespace PlacesBeen.Contollers
       string comments = Request.Form["comments"];
 
       Place newPlace = new Place(location, year, season, favoriteAttraction, comments);
+
       return View(newPlace);
+    }
+
+    [HttpGet("/places/all")]
+    public ActionResult Places()
+    {
+      List<Place> allPlaces = Place.GetAll();
+      return View(allPlaces);
     }
   }
 }
