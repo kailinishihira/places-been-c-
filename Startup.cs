@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ChangeMe
+namespace PlacesBeen
 {
   public class Startup
   {
@@ -22,6 +22,7 @@ namespace ChangeMe
 
     public void Configure(IApplicationBuilder app)
     {
+      app.UseDeveloperExceptionPage();
       app.UseStaticFiles();
       app.UseMvc(routes =>
       {

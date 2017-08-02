@@ -3,7 +3,7 @@ using ToDoList.Models;
 using System.Collections.Generic;
 using System;
 
-namespace ChangeMe.Contollers
+namespace PlacesBeen.Contollers
 {
   public class HomeController : Controller
   {
