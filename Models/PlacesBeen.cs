@@ -9,11 +9,9 @@ namespace PlacesBeen.Models
     private string _season;
     private string _favoriteAttraction;
     private string _comments;
+    private int _id;
 
-
-
-
-    private static List<Place> _instances = new List<Place> {};
+    private static List<Place> _places = new List<Place> {};
 
     public Place (string location, string year, string season, string favoriteAttraction, string comments)
     {
@@ -22,6 +20,8 @@ namespace PlacesBeen.Models
       _season = season;
       _favoriteAttraction = favoriteAttraction;
       _comments = comments;
+      _places.Add(this);
+      _id = _places.Count;
     }
 
     public void SetLocation(string newLocation)
@@ -68,32 +68,33 @@ namespace PlacesBeen.Models
     {
       return _comments;
     }
-    //   _description = description;
-    // }
-    //
-    // public string GetDescription()
-    // {
-    //   return _description;
-    // }
-    //
-    // public void SetDescription(string newDescription)
-    // {
-    //   _description = newDescription;
-    // }
-    //
-    // public static List<string> GetAll()
-    // {
-    //   return _instances;
-    // }
-    //
-    // public void Save()
-    // {
-    //   _instances.Add(_description);
-    // }
-    //
-    // public static void ClearAll()
-    // {
-    //   _instances.Clear();
+
+    public int GetID() {
+      return _id;
+    }
+
+    public static List<Place> GetAll()
+    {
+      return _places;
+    }
+
+    public void Save()
+    {
+      _places.Add(_location);
+      _places.Add(_year);
+      _places.Add(_season);
+      _places.Add(_favoriteAttraction);
+      _places.Add(_comments);
+    }
+
+    public static void ClearAll()
+    {
+      _places.Clear();
+    }
+
+    public static Place Find(int searchID)
+    {
+      return _places[searchID - 1];
     }
   }
 }
