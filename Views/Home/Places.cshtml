@@ -7,7 +7,7 @@
   <ul>
     @foreach (var place in Model)
     {
-      <h3>@place.GetLocation()</h3>
+      <h3>@place.GetID(). @place.GetLocation()</h3>
       <li>Year: @place.GetYear()</li>
       <li>Season: @place.GetSeason()</li>
       <li>Favorite Attraction: @place.GetFavoriteAttraction()</li>
@@ -15,4 +15,5 @@
     }
 
     <a href="/places/new"><button>Add A New Place</button></a>
+    <a href="/places/1"><button>Go to Place #1</button></a>
 </div>

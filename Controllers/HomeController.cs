@@ -40,5 +40,12 @@ namespace PlacesBeen.Contollers
       List<Place> allPlaces = Place.GetAll();
       return View(allPlaces);
     }
+
+    [HttpGet("/places/{id}")]
+    public ActionResult PlaceDetail(int id)
+    {
+      Place place = Place.Find(id);
+      return View(place);
+    }
   }
 }
