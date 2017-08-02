@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Models;
+using PlacesBeen.Models;
 using System.Collections.Generic;
 using System;
 
@@ -8,19 +8,23 @@ namespace PlacesBeen.Contollers
   public class HomeController : Controller
   {
 
-    [Route("/")]
+    [HttpGet("/")]
     public ActionResult Index()
     {
-
       return View();
     }
 
-    [HttpPost("/task/create")]
-    public ActionResult CreateTask()
+    [HttpPost("/addplace")]
+    public ActionResult AddPlace()
     {
-      Task newTask = new Task (Request.Form["new-task"]);
-      newTask.Save();
-      return View(newTask);
+      string location = Request.Form["location"];
+      string year = Request.Form["year"];
+      string season = Request.Form["season"];
+      string favoriteAttraction = Request.Form["favoriteAttraction"];
+      string comments = Request.Form["comments"];
+
+      Place newPlace = new Place(location, year, season, favoriteAttraction, comments);
+      return View(newPlace);
     }
   }
 }

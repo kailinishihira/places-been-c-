@@ -1,0 +1,12 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="container">
+  <h1>Places You've Been</h1>
+  <h3>@Model.GetLocation()</h3>
+    <p>@Model.GetYear()</p>
+    <p>@Model.GetSeason()</p>
+    <p>@Model.GetFavoriteAttraction()</p>
+    <p>@Model.GetComments()</p>
+</div>

@@ -20,7 +20,7 @@ namespace PlacesBeen.Models
       _season = season;
       _favoriteAttraction = favoriteAttraction;
       _comments = comments;
-      _places.Add(this);
+      _places.Add(this); //this is the same as the Save()
       _id = _places.Count;
     }
 
@@ -78,14 +78,10 @@ namespace PlacesBeen.Models
       return _places;
     }
 
-    public void Save()
-    {
-      _places.Add(_location);
-      _places.Add(_year);
-      _places.Add(_season);
-      _places.Add(_favoriteAttraction);
-      _places.Add(_comments);
-    }
+    // public void Save()
+    // {
+    //   _places.Add(this);
+    // }
 
     public static void ClearAll()
     {
